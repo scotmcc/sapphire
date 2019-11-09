@@ -2,7 +2,7 @@
   "name": "sapphire",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "dotenv": "8.2.0",
     "express": "4.17.1",
@@ -10,9 +10,18 @@
     "socket.io": "2.3.0",
     "socket.io-client": "2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "3.2.0",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "style-loader": "1.0.0",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "webpack-node-externals": "1.7.2"
+  },
   "scripts": {
-    "start": "node ./src/server/server.js",
+    "build": "rm -rf public && webpack && webpack --config webpack.server.config.js",
+    "start": "node ./public/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
