@@ -4,17 +4,17 @@ Boilerplate project for starting a WebPack, React, and Express project including
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#Deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#-Deployment) for notes on how to deploy the project on a live system.
 
-### Prerequisites[Prerequisites]
+### # Prerequisites
 
-What things you need to install the software and how to install them. A .env [configuration](#Configuration) file is required for msot functionality.
+What things you need to install the software and how to install them. A .env [configuration](#-Configuration) file is required for msot functionality.
 
 ```
 This project assumes that you have already installed Node.js and have NPM working. 
 ```
 
-### Installing[Installing]
+### # Installing
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -52,7 +52,7 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Configuration[Configuration]
+## # Configuration
 
 This project expects a .env configuration file. Here are the basics:
 
@@ -61,7 +61,7 @@ MODE=development
 PORT=3000
 ```
 
-## Deployment[Deployment]
+## # Deployment
 
 Add additional notes about how to deploy this on a live system
 
