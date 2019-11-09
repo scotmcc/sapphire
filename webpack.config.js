@@ -1,11 +1,12 @@
 require('dotenv').config();
 const path = require('path');
+const webpack = require('webpack');
 
-const public = path.resolve(__dirname, 'public');
+const dist = path.resolve(__dirname, 'public');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const JavaScripts = {
+const JS = {
   test: /\.js$/,
   exclude: /node_modules/,
   use: [
@@ -16,7 +17,7 @@ const JavaScripts = {
   ]
 };
 
-const StyleSheets = {
+const CSS = {
   test: /\.css$/,
   use: ['style-loader', 'css-loader']
 };
@@ -34,18 +35,25 @@ const HTML = {
 module.exports = {
   mode: process.env.MODE,
   target: 'web',
+  devtool: 'source-map',
   entry: {
     index: './src/index.js',
     about: './src/about.js'
   },
   output: {
     filename: '[name].js',
-    path: public
+    path: dist
   },
   module: {
-    rules: [JavaScripts, StyleSheets, HTML]
+    rules: [JS, CSS, HTML]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      Popper: ['popper.js', 'default'],
+      Util: 'exports-loader?Util!bootstrap/js/dist/util'
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/html/index.html',
