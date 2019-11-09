@@ -1,6 +1,6 @@
 # Sapphire
 
-Boilerplate project for starting a WebPack, React, and Express project including WebScoket support.
+Boilerplate project for starting a WebPack, React, and Express project including WebSocket support with Socket.io.
 
 ## Getting Started
 
@@ -29,7 +29,7 @@ npm install
 And run the program
 
 ```
-npm start
+node index.js
 ```
 
 ## Running the tests
@@ -61,6 +61,7 @@ Add additional notes about how to deploy this on a live system
 * [WebPack](https://webpack.js.org/) - The static module bundler
 * [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 * [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework
+* [Socket.io](https://socket.io/) - The fastest and most reliable real-time engine
 
 ## Contributing
 
