@@ -1,0 +1,24 @@
+{
+  "name": "sapphire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scotmcc/sapphire.git"
+  },
+  "keywords": [],
+  "author": "Scot McConnaughay <scotmcc@gmail.com> (http://cutlass.tech/)",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/scotmcc/sapphire/issues"
+  },
+  "homepage": "https://github.com/scotmcc/sapphire#readme"
+}
