@@ -5,6 +5,32 @@ const public = path.resolve(__dirname, 'public');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const JavaScripts = {
+  test: /\.js$/,
+  exclude: /node_modules/,
+  use: [
+    {
+      loader: 'babel-loader',
+      options: { presets: ['@babel/preset-env'], cacheDirectory: true }
+    }
+  ]
+};
+
+const StyleSheets = {
+  test: /\.css$/,
+  use: ['style-loader', 'css-loader']
+};
+
+const HTML = {
+  test: /\.html$/,
+  use: [
+    {
+      loader: 'html-loader',
+      options: { minimize: process.env.MODE === 'production' }
+    }
+  ]
+};
+
 module.exports = {
   mode: process.env.MODE,
   target: 'web',
@@ -17,23 +43,7 @@ module.exports = {
     path: public
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: [{
-        loader: 'babel-loader',
-        options: { presets: ['@babel/preset-env'], cacheDirectory: true}
-      }]
-    }, {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    }, {
-      test: /\.html$/,
-      use: [{
-        loader: 'html-loader',
-        options: { minimize: process.env.MODE === 'production'}
-      }]
-    }]
+    rules: [JavaScripts, StyleSheets, HTML]
   },
   plugins: [
     new HtmlWebpackPlugin({

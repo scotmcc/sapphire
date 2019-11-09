@@ -8,7 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### # Prerequisites
 
-What things you need to install the software and how to install them. A .env [configuration](#-Configuration) file is required for msot functionality.
+What things you need to install the software and how to install them.
+
+A .env [configuration](#-Configuration) file is required for msot functionality.
 
 ```
 This project assumes that you have already installed Node.js and have NPM working. 
