@@ -4,6 +4,11 @@ var message = document.getElementById('message');
 var send = document.getElementById('send');
 var response = document.getElementById('response');
 
+var socket = io();
+socket.on('message', function (data) {
+  response.value = data;
+})
+
 send.addEventListener('mousedown', (e) => {
-  response.value = message.value;
+  socket.send(message.value);
 });
