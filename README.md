@@ -1,6 +1,8 @@
 # Sapphire
 
-Boilerplate project for starting a WebPack, React, and Express project including WebSocket support with Socket.io.
+< [Getting Started](#-Getting-Started) | [Prerequisites](#-Prerequisites)| [Configuration](#-Configuration) | [Inspiration](#-Inspiration) >
+
+Boilerplate project for starting a WebPack, MongoDB, and ExpressJS project including WebSocket support using Socket.io.
 
 ## Getting Started
 
@@ -13,7 +15,7 @@ What things you need to install the software and how to install them.
 A .env [configuration](#-Configuration) file is required for msot functionality.
 
 ```
-This project assumes that you have already installed Node.js and have NPM working. 
+This project assumes that you have already installed Node.js and have NPM working.
 ```
 
 ### # Installing
@@ -31,8 +33,10 @@ npm install
 And run the program
 
 ```
-node index.js
+npm start
 ```
+
+### # Testing
 
 ## Running the tests
 
@@ -61,41 +65,47 @@ This project expects a .env configuration file. Here are the basics:
 ```
 MODE=development
 PORT=3000
+MONGODB=mongodb+srv://<username>:<password@<host>/<database>
 ```
 
 ## # Deployment
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
+### Built With
 
-* [WebPack](https://webpack.js.org/) - The static module bundler
-* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
-* [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework
-* [Socket.io](https://socket.io/) - The fastest and most reliable real-time engine
-* [DotEnv](https://github.com/motdotla/dotenv) - Loads environment variables from .env for nodejs projects.
+-   [WebPack](https://webpack.js.org/) - The static module bundler
+-   [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+-   [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework
+-   [Socket.io](https://socket.io/) - The fastest and most reliable real-time engine
+-   [DotEnv](https://github.com/motdotla/dotenv) - Loads environment variables from .env for nodejs projects.
+-   [Mongoose](https://mongoosejs.com/) - elegant mongodb object modeling for node.js
 
-## Contributing
+## # Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+## # Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/scotmcc/sapphire/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/scotmcc/sapphire/tags).
 
-## Authors
+## # Authors
 
-* **Scot McConnaughay** - *Initial work* - [Cutlass]()
+-   **Scot McConnaughay** - _Initial work_ - [Cutlass]()
 
 See also the list of [contributors](https://github.com/scotmcc/sapphire/graphs/contributors) who participated in this project.
 
-## License
+## # License
 
 This project is licensed under The Unlicense - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## # Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+-   Ben Grunfeld [bengrunfeld](https://github.com/bengrunfeld)
+-   Hat tip to anyone whose code was used
+-   Inspiration
+-   etc
 
+## # Inspiration
+
+-   ExPack [Medium.com](https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
