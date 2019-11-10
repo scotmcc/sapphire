@@ -1,6 +1,7 @@
 require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const dist = path.resolve(__dirname, 'public');
 
@@ -53,6 +54,12 @@ module.exports = {
     rules: [PUG, JS, CSS, HTML]
   },
   plugins: [
+    new WebpackPwaManifest({
+      name: 'Sapphire',
+      short_name: 'Sapphire',
+      description: 'Sapphire: A web framework',
+      filename: 'manifest.json'
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
