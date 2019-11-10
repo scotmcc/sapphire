@@ -1,0 +1,29 @@
+extends includes/layout
+
+append head
+  title Sapphire
+
+append content
+  div.alert.alert-warning.alert-dismissible.fade.show(
+    id="myAlert"
+    role="alert"
+  )
+    strong
+      | Holy guacamole!
+    |  You should check in on some of those fields below.
+    button.close(
+      type="button"
+      data-dismiss="alert"
+      aria-label="Close"
+    )
+      span(aria-hidden="true") &times;
+  table
+    tr
+      td Message
+      td
+        input(type="text" id="message")
+      td
+        button(id="send") Send
+    tr
+      td(colspan=3)
+        textarea(id="response")

@@ -6,6 +6,11 @@ const dist = path.resolve(__dirname, 'public');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const PUG = {
+  test: /\.pug$/,
+  use: ['html-loader?attrs=false', 'pug-html-loader']
+};
+
 const JS = {
   test: /\.js$/,
   exclude: /node_modules/,
@@ -45,7 +50,7 @@ module.exports = {
     path: dist
   },
   module: {
-    rules: [JS, CSS, HTML]
+    rules: [PUG, JS, CSS, HTML]
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -55,8 +60,9 @@ module.exports = {
       Util: 'exports-loader?Util!bootstrap/js/dist/util'
     }),
     new HtmlWebpackPlugin({
+      title: 'PUG Test Page',
       filename: 'index.html',
-      template: './src/html/index.html',
+      template: './src/pug/index.pug',
       inject: true,
       chunks: ['index'],
       excludeChunks: ['server']
