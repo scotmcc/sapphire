@@ -45,6 +45,7 @@ module.exports = [
     mode: process.env.MODE,
     target: 'web',
     entry: {
+      _: './src/components/underscore.js',
       index: './src/javascripts/index.js',
       about: './src/javascripts/about.js'
     },
@@ -74,7 +75,7 @@ module.exports = [
         filename: 'index.html',
         template: './src/pug/index.pug',
         inject: true,
-        chunks: ['index'],
+        chunks: ['_', 'index'],
         excludeChunks: ['server']
       }),
       new HtmlWebpackPlugin({
@@ -82,7 +83,7 @@ module.exports = [
         filename: 'about.html',
         template: './src/html/about.html',
         inject: true,
-        chunks: ['about'],
+        chunks: ['_', 'about'],
         excludeChunks: ['server']
       }),
       new HtmlWebpackPlugin({

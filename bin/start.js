@@ -1,6 +1,4 @@
 const { spawn } = require('child_process');
-const { resolve } = require('path');
-const { rmdir } = require('fs');
 const webpack = require('webpack');
 
 const compiler = webpack(require('../webpack.config.js'));
@@ -9,6 +7,7 @@ let server = null;
 
 function start() {
   server = spawn('node', ['./public/server.js']);
+  server.stdout.pipe(process.stdout);
 }
 
 function restart() {

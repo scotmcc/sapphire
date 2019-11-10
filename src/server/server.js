@@ -18,9 +18,12 @@ app.get('*', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-  socket.send('welcome');
-  socket.on('message', data => {
-    socket.send(data);
+  socket.on('message', message => {
+    if (message.topic === 'echo') {
+      socket.send(message);
+    } else {
+      console.log('socket.message', message);
+    }
   });
 });
 
