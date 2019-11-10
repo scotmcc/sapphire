@@ -1,3 +1,5 @@
+/* global $ */
+
 import '../stylesheets/normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/index.css';
@@ -9,14 +11,30 @@ const message = document.getElementById('message');
 const send = document.getElementById('send');
 const response = document.getElementById('response');
 
+const status = {
+  connection: 'connected'
+};
+
 $('#myAlert').on('closed.bs.alert', () => {
   console.log('alert closed');
 });
 
-socket.on('message', data => {
-  response.value = data;
+socket.on('connect', () => {
+  if (status.connection === 'disconnected') {
+    window.location.replace(window.location.href);
+  }
 });
 
-send.addEventListener('mousedown', e => {
+socket.on('disconnect', () => {
+  status.connection = 'disconnected';
+});
+
+socket.on('message', message => {
+  response.value = message;
+});
+
+send.addEventListener('mousedown', () => {
   socket.send(message.value);
 });
+
+console.log('foo');

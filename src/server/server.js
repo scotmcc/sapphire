@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { access } from 'fs';
 import { resolve } from 'path';
 import http from 'http';
 import socket from 'socket.io';
@@ -19,6 +18,7 @@ app.get('*', function(req, res) {
 });
 
 io.on('connection', function(socket) {
+  socket.send('welcome');
   socket.on('message', data => {
     socket.send(data);
   });
