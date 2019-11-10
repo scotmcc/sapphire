@@ -1,6 +1,6 @@
-# Sapphire
+# # Sapphire
 
-< [Getting Started](#-Getting-Started) | [Prerequisites](#-Prerequisites)| [Configuration](#-Configuration) | [Inspiration](#-Inspiration) >
+< [Installing](#-Installing) | [Configuration](#-Configuration) | [Inspiration](#-Inspiration) >
 
 Boilerplate project for starting a WebPack, MongoDB, and ExpressJS project including WebSocket support using Socket.io.
 
@@ -8,7 +8,7 @@ Boilerplate project for starting a WebPack, MongoDB, and ExpressJS project inclu
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#-Deployment) for notes on how to deploy the project on a live system.
 
-### # Prerequisites
+### Prerequisites
 
 What things you need to install the software and how to install them.
 
@@ -36,9 +36,11 @@ And run the program
 npm start
 ```
 
-### # Testing
+[top](#-Sapphire)
 
-## Running the tests
+## # Testing
+
+### Running the tests
 
 Explain how to run the automated tests for this system
 
@@ -58,6 +60,8 @@ Explain what these tests test and why
 Give an example
 ```
 
+[top](#-Sapphire)
+
 ## # Configuration
 
 This project expects a .env configuration file. Here are the basics:
@@ -68,9 +72,13 @@ PORT=3000
 MONGODB=mongodb+srv://<username>:<password@<host>/<database>
 ```
 
+[top](#-Sapphire)
+
 ## # Deployment
 
 Add additional notes about how to deploy this on a live system
+
+[top](#-Sapphire)
 
 ### Built With
 
@@ -81,13 +89,19 @@ Add additional notes about how to deploy this on a live system
 -   [DotEnv](https://github.com/motdotla/dotenv) - Loads environment variables from .env for nodejs projects.
 -   [Mongoose](https://mongoosejs.com/) - elegant mongodb object modeling for node.js
 
+[top](#-Sapphire)
+
 ## # Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
+[top](#-Sapphire)
+
 ## # Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/scotmcc/sapphire/tags).
+
+[top](#-Sapphire)
 
 ## # Authors
 
@@ -95,9 +109,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 See also the list of [contributors](https://github.com/scotmcc/sapphire/graphs/contributors) who participated in this project.
 
+[top](#-Sapphire)
+
 ## # License
 
 This project is licensed under The Unlicense - see the [LICENSE.md](LICENSE.md) file for details
+
+[top](#-Sapphire)
 
 ## # Acknowledgments
 
@@ -106,6 +124,10 @@ This project is licensed under The Unlicense - see the [LICENSE.md](LICENSE.md) 
 -   Inspiration
 -   etc
 
+[top](#-Sapphire)
+
 ## # Inspiration
 
 -   ExPack [Medium.com](https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
+
+[top](#-Sapphire)
