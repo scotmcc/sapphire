@@ -1,34 +1,25 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { resolve } from 'path';
-import http from 'http';
-import socket from 'socket.io';
-import express from 'express';
-import internalIp from 'internal-ip';
+import Database from './lib/database/database.js';
+import WebServer from './lib/webserver/webserver.js';
 
-const app = express();
-const server = http.createServer(app);
-const io = socket(server, { serveClient: false });
+const server = {
+  webserver: new WebServer(this),
+  database: new Database(this)
+};
 
-app.use(express.static(resolve(process.env.PWD, 'public')));
-
-app.get('*', function(req, res) {
-  res.sendFile(resolve(process.env.PWD, 'public', '404.html'));
+server.webserver.on('started', ws => {
+  console.log(`WebServer started on ${ws.address}:${ws.port}`);
 });
 
-io.on('connection', function(socket) {
-  socket.on('message', message => {
-    if (message.topic === 'echo') {
-      socket.send(message);
-    } else {
-      console.log('socket.message', message);
-    }
-  });
+server.database.on('started', db => {
+  console.log(`Database connected to ${db.connection.db.databaseName}`);
 });
 
-server.listen(process.env.PORT, async () => {
-  console.log(
-    `listening on http://${await internalIp.v4()}:${server.address().port}`
-  );
+server.webserver.on('echo', body => {
+  server.webserver.send('echo', body);
 });
+
+server.webserver.start();
+server.database.start();
