@@ -1,5 +1,10 @@
 /* global */
 
+import 'webpack-icons-installer';
+import '../stylesheets/normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+
 import { sock, socket } from './web-socket.js';
 
 const status = {

@@ -6,39 +6,10 @@ const webpack = require('webpack');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeExternalsPlugin = require('webpack-node-externals');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const dist = path.resolve(__dirname, 'public');
-
-const PUG = {
-  test: /\.pug$/,
-  use: ['html-loader?attrs=false', 'pug-html-loader']
-};
-
-const JS = {
-  test: /\.js$/,
-  exclude: /node_modules/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: { presets: ['@babel/preset-env'], cacheDirectory: true }
-    }
-  ]
-};
-
-const CSS = {
-  test: /\.css$/,
-  use: ['style-loader', 'css-loader']
-};
-
-const HTML = {
-  test: /\.html$/,
-  use: [
-    {
-      loader: 'html-loader',
-      options: { minimize: process.env.MODE === 'production' }
-    }
-  ]
-};
+const dev_mode = process.env.MODE === 'development';
 
 module.exports = [
   {
@@ -55,7 +26,42 @@ module.exports = [
       publicPath: '/'
     },
     devtool: 'source-map',
-    module: { rules: [PUG, JS, CSS, HTML] },
+    resolve: {
+      extensions: ['.js', '.jsx', '.scss']
+    },
+    module: {
+      rules: [
+        { test: /\.less$/, loader: 'less-loader' },
+        { test: /\.pug$/, use: ['html-loader?attrs=false', 'pug-html-loader'] },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: { presets: ['@babel/preset-env'], cacheDirectory: true }
+            }
+          ]
+        },
+        {
+          test: /\.html$/,
+          use: [{ loader: 'html-loader', options: { minimize: !dev_mode } }]
+        },
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: 'url-loader',
+          options: {
+            limit: 8192,
+            name: '[name].[ext]',
+            outputPath: 'assets' //the icons will be stored in dist/assets folder
+          }
+        }
+      ]
+    },
     plugins: [
       new webpack.NoEmitOnErrorsPlugin(),
       new WebpackPwaManifest({
@@ -69,6 +75,10 @@ module.exports = [
         jQuery: 'jquery',
         Popper: ['popper.js', 'default'],
         Util: 'exports-loader?Util!bootstrap/js/dist/util'
+      }),
+      new MiniCssExtractPlugin({
+        filename: dev_mode ? '[name].css' : '[name].[hash].css',
+        chunkFilename: dev_mode ? '[id].css' : '[id].[hash].css'
       }),
       new HtmlWebpackPlugin({
         title: 'PUG Test Page',

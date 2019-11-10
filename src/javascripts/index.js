@@ -1,9 +1,5 @@
 /* global $ _ */
-
-import '../stylesheets/normalize.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/index.css';
-import 'bootstrap';
 
 const message = $('#message');
 const send = $('#send');
