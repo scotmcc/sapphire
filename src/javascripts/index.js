@@ -1,8 +1,8 @@
-import './stylesheets/normalize.css';
+import '../stylesheets/normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './stylesheets/index.css';
+import '../stylesheets/index.css';
 
-import socket from './components/web-socket.js';
+import socket from '../components/web-socket.js';
 import 'bootstrap';
 
 const message = document.getElementById('message');
