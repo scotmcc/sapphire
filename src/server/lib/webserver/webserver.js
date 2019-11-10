@@ -6,7 +6,10 @@ import socket from 'socket.io';
 import express from 'express';
 import internalIp from 'internal-ip';
 
-import expressSession from 'express-session';
+import session from 'express-session';
+import mongo from 'connect-mongo';
+
+const MongoStore = mongo(session);
 
 export const app = express();
 export const server = http.createServer(app);
@@ -22,11 +25,15 @@ class WebServer extends EventEmitter {
   }
   start() {
     app.use(
-      expressSession({
+      session({
         secret: uuid(),
         resave: false,
         rolling: false,
-        saveUninitialized: true
+        saveUninitialized: true,
+        store: new MongoStore({
+          mongooseConnection: this.server.mongoose.connection,
+          ttl: 5 * 60
+        })
       })
     );
     app.use((req, res, next) => {
