@@ -4,11 +4,18 @@ import mongoose from 'mongoose';
 class Database extends EventEmitter {
   constructor(server) {
     super();
+    server.mongoose = mongoose;
     Object.defineProperty(this, 'server', { value: server });
   }
   start() {
-    mongoose.connect(process.env.MONGODB, { useNewUrlParser: true });
-    Object.defineProperty(this, 'connection', { value: mongoose.connection });
+    mongoose.connect(process.env.MONGODB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    Object.defineProperty(this, 'connection', {
+      value: mongoose.connection,
+      useUnifiedTopology: true
+    });
     this.connection.on(
       'error',
       console.error.bind(console, 'connection error:')

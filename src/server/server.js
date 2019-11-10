@@ -4,13 +4,14 @@ dotenv.config();
 import Database from './lib/database/database.js';
 import WebServer from './lib/webserver/webserver.js';
 
-const server = {
-  webserver: new WebServer(this),
-  database: new Database(this)
-};
+const server = {};
+
+server.webserver = new WebServer(server);
+server.database = new Database(server);
 
 server.webserver.on('started', ws => {
-  console.log(`WebServer started on ${ws.address}:${ws.port}`);
+  console.log(`WebServer internally on http://localhost:${ws.port}`);
+  console.log(`WebServer externally on http://${ws.address}:${ws.port}`);
 });
 
 server.database.on('started', db => {
