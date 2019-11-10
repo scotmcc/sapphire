@@ -9,7 +9,7 @@ const message = document.getElementById('message');
 const send = document.getElementById('send');
 const response = document.getElementById('response');
 
-$('#myAlert').on('closed.bs.alert', function() {
+$('#myAlert').on('closed.bs.alert', () => {
   console.log('alert closed');
 });
 

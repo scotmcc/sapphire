@@ -1,2 +1,14 @@
 header.container
-  h1 I'm a header
+  div.alert.alert-warning.alert-dismissible.fade.show(
+    id="myAlert"
+    role="alert"
+  )
+    strong
+      | Holy guacamole!
+    |  You should check in on some of those fields below.
+    button.close(
+      type="button"
+      data-dismiss="alert"
+      aria-label="Close"
+    )
+      span(aria-hidden="true") &times;

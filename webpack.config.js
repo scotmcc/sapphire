@@ -56,6 +56,7 @@ module.exports = [
     devtool: 'source-map',
     module: { rules: [PUG, JS, CSS, HTML] },
     plugins: [
+      new webpack.NoEmitOnErrorsPlugin(),
       new WebpackPwaManifest({
         name: 'Sapphire',
         short_name: 'Sapphire',
@@ -102,6 +103,7 @@ module.exports = [
       filename: 'server.js',
       path: dist,
       publicPath: '/'
-    }
+    },
+    externals: [new nodeExternalsPlugin()]
   }
 ];

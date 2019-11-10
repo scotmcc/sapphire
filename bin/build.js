@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 const compiler = webpack(require('../webpack.config.js'));
 
-rmdir(resolve(__dirname, 'public'), { recursive: true }, () => {
+rmdir(resolve(process.env.PWD, 'public'), { recursive: true }, () => {
   compiler.run((err, stats) => {
     console.log(err, stats);
   });
