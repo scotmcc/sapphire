@@ -19,6 +19,7 @@ class WebServer extends EventEmitter {
   constructor(server) {
     super();
     Object.defineProperty(this, 'server', { value: server });
+    Object.defineProperty(this, 'app', { value: app });
   }
   send(topic, body) {
     this.socket.send({ topic, body });
