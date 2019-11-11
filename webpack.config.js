@@ -55,8 +55,7 @@ const plugins = [
   new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
-    Popper: ['popper.js', 'default'],
-    Util: 'exports-loader?Util!bootstrap/js/dist/util'
+    Popper: ['popper.js', 'default']
   }),
   new MiniCssExtractPlugin({
     filename: '[name].css',
@@ -65,22 +64,11 @@ const plugins = [
 ];
 
 const rules = [
-  { test: /\.pug$/, loader: 'pug-loader' },
-  { test: /\.less$/, loader: ['style-loader', 'css-loader', 'less-loader'] },
-  { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-  {
-    test: /\.js$/,
-    exclude: /node_modules/,
-    use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          cacheDirectory: true
-        }
-      }
-    ]
-  },
+  { test: /\.pug$/, use: ['pug-loader'] },
+  { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
+  { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+  { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+  { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'] },
   {
     test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'url-loader',
