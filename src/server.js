@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import Database from './lib/database/database.js';
-import WebServer from './lib/webserver/webserver.js';
+import Database from './server/lib/database/database.js';
+import WebServer from './server/lib/webserver/webserver.js';
 
 const server = {};
 

@@ -1,11 +1,11 @@
 /* global */
 
 import 'webpack-icons-installer';
-import '../stylesheets/normalize.css';
+import './client/stylesheets/normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
-import { sock, socket } from './web-socket.js';
+import { sock, socket } from './client/lib/web-socket.js';
 
 const status = {
   socket: { connected: true }
@@ -18,6 +18,7 @@ sock.on('connect', () => {
 });
 
 sock.on('disconnect', () => {
+  console.log('sock.disconnect');
   status.socket.connected = false;
 });
 

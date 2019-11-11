@@ -1,0 +1,16 @@
+extends includes/layout
+
+append head
+  title Sapphire - News
+
+append content
+  table
+    tr
+      td Message
+      td
+        input(type="text" id="message")
+      td
+        button(id="send") Send
+    tr
+      td(colspan=3)
+        textarea(id="response")
