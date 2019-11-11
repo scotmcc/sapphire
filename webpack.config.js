@@ -35,7 +35,7 @@ const controllers = {
 };
 
 const views = [
-  // page('./src/client/views/404.pug'),
+  page('./src/client/views/404.pug'),
   page('./src/client/views/about.pug'),
   page('./src/client/views/forums.pug'),
   page('./src/client/views/games.pug'),

@@ -18,7 +18,6 @@ sock.on('connect', () => {
 });
 
 sock.on('disconnect', () => {
-  console.log('sock.disconnect');
   status.socket.connected = false;
 });
 
