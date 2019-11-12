@@ -2,7 +2,7 @@
 
 < [Installing](#-Installing) | [Configuration](#-Configuration) | [Inspiration](#-Inspiration) >
 
-Boilerplate project for starting a WebPack, MongoDB, and ExpressJS project including WebSocket support using Socket.io.
+Boilerplate project for starting a [WebPack](https://webpack.js.org/), [MongoDB](https://www.mongodb.com/), and [ExpressJS](https://expressjs.com/) project including [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) support using [Socket.io](https://socket.io/).
 
 ## Getting Started
 
@@ -77,6 +77,10 @@ MONGODB=mongodb+srv://<username>:<password@<host>/<database>
 ## # Deployment
 
 Add additional notes about how to deploy this on a live system
+
+```
+Build and deployment...
+```
 
 [top](#-Sapphire)
 
