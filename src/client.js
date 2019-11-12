@@ -1,9 +1,4 @@
-/* global */
-
-import 'webpack-icons-installer';
-import './client/stylesheets/normalize.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
+/* global $ */
 
 import { sock, socket } from './client/lib/web-socket.js';
 
@@ -25,6 +20,10 @@ export const _ = {
   socket,
   status
 };
+
+$(document).ready(function() {
+  console.log('ready!');
+});
 
 window._ = _;
 
