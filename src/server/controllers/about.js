@@ -3,6 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', function(req, res) {
+  console.log('POST /about', req.body);
   res.send({
     router: 'about',
     path: '/'
@@ -11,6 +12,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+  console.log('POST /about', req.body);
   res.send({
     router: 'about',
     path: '/'

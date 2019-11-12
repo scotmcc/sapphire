@@ -14,6 +14,7 @@ import forumsRouter from './server/controllers/forums.js';
 import gamesRouter from './server/controllers/games.js';
 import groupsRouter from './server/controllers/groups.js';
 import indexRouter from './server/controllers/index.js';
+import loginRouter from './server/controllers/login.js';
 import newsRouter from './server/controllers/news.js';
 
 const server = {};
@@ -29,6 +30,7 @@ server.webserver.app.use('/forums', forumsRouter);
 server.webserver.app.use('/games', gamesRouter);
 server.webserver.app.use('/groups', groupsRouter);
 server.webserver.app.use('/home', indexRouter);
+server.webserver.app.use('/home', loginRouter);
 server.webserver.app.use('/news', newsRouter);
 
 server.webserver.app.use(morgan('tiny', { stream: accessLogStream }));

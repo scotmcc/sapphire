@@ -35,6 +35,7 @@ const entry = {
   games: './src/client/controllers/games.js',
   groups: './src/client/controllers/groups.js',
   index: './src/client/controllers/index.js',
+  login: './src/client/controllers/login.js',
   news: './src/client/controllers/news.js'
 };
 
@@ -51,7 +52,8 @@ const views = [
   page('./src/client/views/games.pug'),
   page('./src/client/views/groups.pug'),
   page('./src/client/views/index.pug'),
-  page('./src/client/views/news.pug')
+  page('./src/client/views/news.pug'),
+  page('./src/client/views/login.pug')
 ];
 
 const plugins = [
